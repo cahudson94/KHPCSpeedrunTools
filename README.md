@@ -16,9 +16,9 @@ Download files from the repository in one of the following ways:
 Follow this setup for any of the games aside from 0.2 and 3:
 
 Get one of the following programs for running `lua` scripts:
-- [LuaBackend](https://github.com/Sirius902/LuaBackend/releases)
-- [LuaFrontend](https://github.com/TopazTK/LuaFrontend/releases)
-- [OpenKH Mod Manager](https://github.com/OpenKH/OpenKh/releases) 
+- [LuaBackend](https://github.com/Sirius902/LuaBackend/releases) The `DBGHELP.zip` file.
+- [LuaFrontend](https://github.com/TopazTK/LuaFrontend/releases) The `LuaFrontend` versioned .rar file.
+- [OpenKH Mod Manager](https://github.com/OpenKH/OpenKh/releases) The `openkh.zip` file.
 
 Follow the instructions provided with each on setup or see the [LUA.md](LUA.md) file for more detailed instructions.
 
