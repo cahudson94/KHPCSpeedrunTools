@@ -10,6 +10,7 @@ state("KINGDOM HEARTS FINAL MIX", "EG Global") // 1.0.0.10
     byte42 equips : 0x2DEA233;
     byte fightend : 0x2D54438;
     byte in_gummi : 0x50832D;
+    byte in_garage : 0x2EDC8A8;
     bool load : 0x232E6E8;
     bool load_2 : 0x233F230;
     byte7 magic_level_flags : 0x2DEB97E;
@@ -45,6 +46,7 @@ state("KINGDOM HEARTS FINAL MIX", "EG JP") // 1.0.0.10
     byte42 equips : 0x2DEA233;
     byte fightend : 0x2D54438;
     byte in_gummi : 0x50832D;
+    byte in_garage : 0x2EDC8A8;
     bool load : 0x232E6E8;
     bool load_2 : 0x233F230;
     byte7 magic_level_flags : 0x2DEB97E;
@@ -80,6 +82,7 @@ state("KINGDOM HEARTS FINAL MIX", "Steam Global") // 1.0.0.2
     byte42 equips : 0x2DE9833;
     byte fightend : 0x2D53A38;
     byte in_gummi : 0x5075A8; // differs to cover a change on linux systems
+    byte in_garage : 0x2EDBAA8;
     bool load : 0x232DCE8;
     bool load_2 : 0x233E830;
     byte7 magic_level_flags : 0x2DEAF7E;
@@ -115,6 +118,7 @@ state("KINGDOM HEARTS FINAL MIX", "Steam JP") // 1.0.0.2
     byte42 equips : 0x2DE9833;
     byte fightend : 0x2D53A38;
     byte in_gummi : 0x5075A8; // differs to cover a change on linux systems
+    byte in_garage : 0x2EDBAA8;
     bool load : 0x232DCE8;
     bool load_2 : 0x233E830;
     byte7 magic_level_flags : 0x2DEAF7E;
@@ -173,6 +177,7 @@ startup
         settings.Add("sabor_2", true, "Sabor 2", "optional_splits");
         settings.Add("clayton_1", false, "Clayton 1", "optional_splits");
         settings.Add("wfc", false, "Waterfall Cavern", "optional_splits");
+        settings.Add("simba", false, "Simba", "optional_splits");
         settings.Add("tt_2", false, "Traverse Town 2", "optional_splits");
         settings.Add("save_al", false, "Save Aladdin", "optional_splits");
         settings.Add("pot", true, "Pot Centipede", "optional_splits");
@@ -761,7 +766,11 @@ split
                         }
                         return vars.completed_splits.Add("leon") && settings["leon"];
                     }
-                    if (current.room == 10 && current.scene == 11 && current.in_gummi > 0) {
+                    // earth shine returned
+                    if (current.collected_items_2[57] == 0 && old.collected_items_2[57] == 1) {
+                        return vars.completed_splits.Add("simba") && settings["simba"];
+                    }
+                    if (current.room == 10 && current.scene == 11 && (current.in_gummi > 0 || current.in_garage > 0)) {
                         return vars.completed_splits.Add("tt_2") && settings["tt_2"];
                     }
                     // oath keeper
