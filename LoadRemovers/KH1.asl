@@ -10,7 +10,7 @@ state("KINGDOM HEARTS FINAL MIX", "EG Global") // 1.0.0.10
     byte42 equips : 0x2DEA233;
     byte fightend : 0x2D54438;
     byte in_gummi : 0x50832D;
-    byte in_garage : 0x2EDC8A8;
+    byte in_garage : 0x2340ED9a;
     bool load : 0x232E6E8;
     bool load_2 : 0x233F230;
     byte7 magic_level_flags : 0x2DEB97E;
@@ -46,7 +46,7 @@ state("KINGDOM HEARTS FINAL MIX", "EG JP") // 1.0.0.10
     byte42 equips : 0x2DEA233;
     byte fightend : 0x2D54438;
     byte in_gummi : 0x50832D;
-    byte in_garage : 0x2EDC8A8;
+    byte in_garage : 0x2340ED9;
     bool load : 0x232E6E8;
     bool load_2 : 0x233F230;
     byte7 magic_level_flags : 0x2DEB97E;
@@ -82,7 +82,7 @@ state("KINGDOM HEARTS FINAL MIX", "Steam Global") // 1.0.0.2
     byte42 equips : 0x2DE9833;
     byte fightend : 0x2D53A38;
     byte in_gummi : 0x5075A8; // differs to cover a change on linux systems
-    byte in_garage : 0x2EDBAA8;
+    byte in_garage : 0x233FEA1;
     bool load : 0x232DCE8;
     bool load_2 : 0x233E830;
     byte7 magic_level_flags : 0x2DEAF7E;
@@ -118,7 +118,7 @@ state("KINGDOM HEARTS FINAL MIX", "Steam JP") // 1.0.0.2
     byte42 equips : 0x2DE9833;
     byte fightend : 0x2D53A38;
     byte in_gummi : 0x5075A8; // differs to cover a change on linux systems
-    byte in_garage : 0x2EDBAA8;
+    byte in_garage : 0x233FEA1;
     bool load : 0x232DCE8;
     bool load_2 : 0x233E830;
     byte7 magic_level_flags : 0x2DEAF7E;
@@ -770,7 +770,7 @@ split
                     if (current.collected_items_2[57] == 0 && old.collected_items_2[57] == 1) {
                         return vars.completed_splits.Add("simba") && settings["simba"];
                     }
-                    if (current.room == 10 && current.scene == 11 && (current.in_gummi > 0 || current.in_garage > 0)) {
+                    if (current.room == 10 && current.scene == 11 && (current.in_gummi > 0 || current.in_garage == 95 || current.in_gummi == 96)) {
                         return vars.completed_splits.Add("tt_2") && settings["tt_2"];
                     }
                     // oath keeper
