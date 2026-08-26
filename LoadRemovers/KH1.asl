@@ -393,6 +393,7 @@ split
     bool fight_exp = current.sora_exp > old.sora_exp && current.sora_exp - old.sora_exp > 5;
     bool fight_complete = current.fightend == 2 && old.fightend == 0;
     bool death = current.sora_hp == 0 && old.sora_hp > 0;
+    bool whiteout = current.white > 0 && old.white == 0;
     vars.summon_timer = current.summon_load ? vars.summon_timer + (current.paused ? 0 : 1) : 0;
 
     // Final fight split always goes
@@ -760,7 +761,7 @@ split
                     break;
                 // traverse town
                 case 3:
-                    if (current.room == 0 && current.scene == 3 && ((death) || (fight_exp))) {
+                    if (current.room == 0 && current.scene == 3 && ((death) || (fight_exp) || (whiteout))) {
                         if (settings["boss_rush"]) {
                             File.Copy(@"Boss Rush\004_Guard Armor.dat", vars.autosavedst, true);
                         }
@@ -786,7 +787,7 @@ split
                     break;
                 // deep jungle
                 case 5:
-                    if (current.room == 0 && current.scene == 0 && ((death) || (fight_exp))) {
+                    if (current.room == 0 && current.scene == 0 && ((death) || (fight_exp) || (whiteout))) {
                         return vars.completed_splits.Add("sabor_1") && settings["sabor_1"];
                     }
                     if (
