@@ -365,6 +365,7 @@ start
 
     // neverland vars
     vars.nl_puppies = 0;
+    vars.nl_magic_unlock = 0;
     vars.pre_hook = false;
 
     // end of world vars
