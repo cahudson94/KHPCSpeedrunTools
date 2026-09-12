@@ -255,6 +255,7 @@ startup
         settings.Add("cloud_2", false, "Cloud 2", "all_worlds_splits");
         settings.Add("herc_cup", false, "Hercules Cup", "all_worlds_splits");
         settings.Add("atl_dock", false, "Atlantica Dock", "all_worlds_splits");
+        settings.Add("nl2", false, "Neverland 2 - Aero upgrade", "all_worlds_splits");
         settings.Add("urs_1", false, "Ursula 1", "all_worlds_splits");
         settings.Add("urs_2", false, "Ursula 2", "all_worlds_splits");
 
@@ -1036,6 +1037,15 @@ split
                         return vars.completed_splits.Add("thunder_alt") && settings["thunder_alt"];
                     }
                     break;
+                // neverland
+                case 13:
+                    if (current.magic_unlock_val > old.magic_unlock_val) {
+                        vars.nl_magic_unlock += 1;
+                    }
+                    // Second magic unlock is Aero upgrade
+                    if (current.in_gummi > 0 && vars.nl_magic_unlock == 2) {
+                        return vars.completed_splits.Add("nl2") && settings["nl2"];
+                    }
             }
         }
     }
@@ -1584,6 +1594,7 @@ init
 
     // neverland vars
     vars.nl_puppies = 0;
+    vars.nl_magic_unlock = 0;
     vars.pre_hook = false;
 
     // end of world vars
