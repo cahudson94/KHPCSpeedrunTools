@@ -1047,6 +1047,7 @@ split
                     if (current.in_gummi > 0 && vars.nl_magic_unlock == 2) {
                         return vars.completed_splits.Add("nl2") && settings["nl2"];
                     }
+                    break;
             }
         }
     }
